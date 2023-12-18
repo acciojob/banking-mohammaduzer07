@@ -8,7 +8,6 @@ public class SavingsAccount extends BankAccount{
         super(name, balance, 0);
         this.maxWithdrawalLimit = maxWithdrawalLimit;
         this.rate = rate;
-
     }
     public double getRate() {
         return rate;
@@ -22,7 +21,6 @@ public class SavingsAccount extends BankAccount{
     public void setMaxWithdrawalLimit(double maxWithdrawalLimit) {
         this.maxWithdrawalLimit = maxWithdrawalLimit;
     }
-
     @Override
     public void withdraw(double amount) throws Exception {
         // Might throw the following errors:
@@ -43,14 +41,11 @@ public class SavingsAccount extends BankAccount{
     }
     public double getCompoundInterest(int times, int years){
         // Return the final amount considering that bank gives compound interest on current amount given times per year
-//        double compoundInterest = this.getBalance() * Math.pow((1 + rate / (100 * times)), times * years) - this.getBalance();
-//        return this.getBalance() + compoundInterest;
-        double profitRate = (1 + (rate/(times*100)));
-        return super.getBalance() * Math.pow(profitRate, times*years);
+        double compoundInterest = this.getBalance() * Math.pow((1 + rate / (100 * times)), times * years) ;
+        return compoundInterest;
     }
     @Override
     public String toString() { //*****
         return super.toString() + "\nRate: " + rate + "\nMaximum Withdrawal Limit: " + maxWithdrawalLimit;
     }
-
 }

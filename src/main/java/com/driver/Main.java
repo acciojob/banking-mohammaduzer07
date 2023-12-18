@@ -10,6 +10,7 @@ public class Main {
             savingsAccount.withdraw(500);
             double SI = savingsAccount.getSimpleInterest(2);
             double CI = savingsAccount.getCompoundInterest(4, 3);
+
             StudentAccount studentAccount = new StudentAccount("Uzer", 1500, "MIT University");
             studentAccount.deposit(500);
 
@@ -19,6 +20,8 @@ public class Main {
 
             System.out.println("Saving Account Info");
             System.out.println(savingsAccount);
+            System.out.println("Simple Interest: " + SI);
+            System.out.println("Compound Interest: " + CI);
             System.out.println();
 
             System.out.println("Student Account Info");
@@ -27,6 +30,5 @@ public class Main {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 }

@@ -49,23 +49,21 @@ public class BankAccount {
 //            accountNumberStr.append(digit);
 //        }
 //        return accountNumberStr.toString();
-        try {
-            int accountNo = digits;
-            int sumOfDigit = 0;
-            while(accountNo > 0) {
-                int digit = accountNo%10;
-                sumOfDigit += digit;
-                accountNo /= 10;
-            }
-            if(sumOfDigit == sum) {
-                return Integer.toString(digits);
-            } else {
-                throw new Exception("Account Number can not be generated");
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        if (digits * 9 < sum) {
+            throw new Exception("Account Number cannot be generated");
         }
-        return null;
+        int[] accountNumber = new int[digits];
+        for (int i = 0; i < digits; i++) {
+            int digit = Math.min(9, sum);
+            accountNumber[i] = digit;
+            sum -= digit;
+        }
+        StringBuilder accountNumberStr = new StringBuilder();
+        for (int digit : accountNumber) {
+            accountNumberStr.append(digit);
+        }
+        return accountNumberStr.toString();
+//        return null;
     }
     public void deposit(double amount) {
         //add amount to balance
@@ -77,19 +75,12 @@ public class BankAccount {
 //            throw new Exception("Insufficient Balance");
 //        }
 //        balance -= amount;
-        try{
-            if(amount < this.balance) {
-                if(this.balance - amount >= this.minBalance) {
-                    this.balance -= amount;
-                } else {
-                    throw new Exception("Insufficient Balance");
-                }
-            } else {
-                throw new Exception("Amount exceeds available balance");
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        if(amount > this.balance) { //*****
+            throw new Exception("Amount exceeds available balance");
+        } else if(this.balance - amount < this.minBalance) {
+            throw new Exception("Insufficient Balance");
         }
+        this.balance -= amount;
     }
     @Override
     public String toString() { // ****
