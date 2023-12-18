@@ -20,8 +20,8 @@ public class Main {
 
             System.out.println("Saving Account Info");
             System.out.println(savingsAccount);
-            System.out.println("Simple Interest: " + SI);
-            System.out.println("Compound Interest: " + CI);
+//            System.out.println("Simple Interest: " + SI);
+//            System.out.println("Compound Interest: " + CI);
             System.out.println();
 
             System.out.println("Student Account Info");

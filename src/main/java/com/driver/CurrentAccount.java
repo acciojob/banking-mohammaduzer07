@@ -30,8 +30,8 @@ public class CurrentAccount extends BankAccount {
         }
     }
     private boolean isValidLicenseIdCheck() {
-        for (int i = 1; i < tradeLicenseId.length() ; i++) {
-            if (tradeLicenseId.charAt(i) == tradeLicenseId.charAt(i - 1)) {
+        for (int i = 0; i < tradeLicenseId.length()-1 ; i++) {
+            if (tradeLicenseId.charAt(i) == tradeLicenseId.charAt(i + 1)) {
                 return false;
             }
         }
