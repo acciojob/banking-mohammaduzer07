@@ -40,18 +40,18 @@ public class CurrentAccount extends BankAccount {
     private void rearrangeLicenseId() {
         char[] licenseIdChars = tradeLicenseId.toCharArray();
         Arrays.sort(licenseIdChars);
-        for (int i = 0; i < licenseIdChars.length - 1; i++) {
-            if (licenseIdChars[i] == licenseIdChars[i + 1]) {
-                for (int j = i + 2; j < licenseIdChars.length; j++) {
-                    if (licenseIdChars[j] != licenseIdChars[i]) {
-                        char temp = licenseIdChars[i + 1];
-                        licenseIdChars[i + 1] = licenseIdChars[j];
-                        licenseIdChars[j] = temp;
-                        break;
-                    }
-                }
-            }
-        }
+//        for (int i = 0; i < licenseIdChars.length - 1; i++) {
+//            if (licenseIdChars[i] == licenseIdChars[i + 1]) {
+//                for (int j = i + 2; j < licenseIdChars.length; j++) {
+//                    if (licenseIdChars[j] != licenseIdChars[i]) {
+//                        char temp = licenseIdChars[i + 1];
+//                        licenseIdChars[i + 1] = licenseIdChars[j];
+//                        licenseIdChars[j] = temp;
+//                        break;
+//                    }
+//                }
+//            }
+//        }
         tradeLicenseId = new String(licenseIdChars);
     }
     @Override
