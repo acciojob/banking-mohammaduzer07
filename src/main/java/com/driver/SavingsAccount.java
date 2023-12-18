@@ -10,6 +10,19 @@ public class SavingsAccount extends BankAccount{
         this.rate = rate;
 
     }
+    public double getRate() {
+        return rate;
+    }
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+    public double getMaxWithdrawalLimit() {
+        return maxWithdrawalLimit;
+    }
+    public void setMaxWithdrawalLimit(double maxWithdrawalLimit) {
+        this.maxWithdrawalLimit = maxWithdrawalLimit;
+    }
+
     @Override
     public void withdraw(double amount) throws Exception {
         // Might throw the following errors:
@@ -18,25 +31,23 @@ public class SavingsAccount extends BankAccount{
         if(amount > maxWithdrawalLimit){
             throw new Exception("Maximum Withdraw Limit Exceeed");
         }
-        if(amount > getBalance()){
+        else if(amount > this.getBalance()){
             throw new Exception("Insufficient Balance");
         }
-
-        setBalance(getBalance() - amount);
-
+        else setBalance(this.getBalance() - amount);
     }
     public double getSimpleInterest(int years){
         // Return the final amount considering that bank gives simple interest on current amount
-        double simpleInterest = getBalance() * rate * years / 100;
-        return getBalance() + simpleInterest;
+        double simpleInterest = this.getBalance() * rate * years / 100;
+        return this.getBalance() + simpleInterest;
     }
-
     public double getCompoundInterest(int times, int years){
         // Return the final amount considering that bank gives compound interest on current amount given times per year
-        double compoundInterest = getBalance() * Math.pow((1 + rate / (100 * times)), times * years) - getBalance();
-        return getBalance() + compoundInterest;
+//        double compoundInterest = this.getBalance() * Math.pow((1 + rate / (100 * times)), times * years) - this.getBalance();
+//        return this.getBalance() + compoundInterest;
+        double profitRate = (1 + (rate/(times*100)));
+        return super.getBalance() * Math.pow(profitRate, times*years);
     }
-
     @Override
     public String toString() { //*****
         return super.toString() + "\nRate: " + rate + "\nMaximum Withdrawal Limit: " + maxWithdrawalLimit;
