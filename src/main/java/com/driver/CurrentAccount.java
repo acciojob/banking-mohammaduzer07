@@ -31,7 +31,7 @@ public class CurrentAccount extends BankAccount {
     }
     private boolean isValidLicenseIdCheck() {
         for (int i = 0; i < tradeLicenseId.length()-1 ; i++) {
-            if (tradeLicenseId.charAt(i) == tradeLicenseId.charAt(i + 1)) {
+            if (tradeLicenseId.charAt(i) == tradeLicenseId.charAt(i+1)) {
                 return false;
             }
         }
@@ -40,6 +40,7 @@ public class CurrentAccount extends BankAccount {
     private void rearrangeLicenseId() {
         char[] licenseIdChars = tradeLicenseId.toCharArray();
         Arrays.sort(licenseIdChars);
+        tradeLicenseId = new String(licenseIdChars);
 //        for (int i = 0; i < licenseIdChars.length - 1; i++) {
 //            if (licenseIdChars[i] == licenseIdChars[i + 1]) {
 //                for (int j = i + 2; j < licenseIdChars.length; j++) {
@@ -52,7 +53,6 @@ public class CurrentAccount extends BankAccount {
 //                }
 //            }
 //        }
-        tradeLicenseId = new String(licenseIdChars);
     }
     @Override
     public String toString(){ //******

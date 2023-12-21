@@ -33,7 +33,6 @@ public class SavingsAccount extends BankAccount{
             throw new Exception("Insufficient Balance");
         }
         setBalance(this.getBalance() - amount);
-
     }
     public double getSimpleInterest(int years){
         // Return the final amount considering that bank gives simple interest on current amount
@@ -43,7 +42,7 @@ public class SavingsAccount extends BankAccount{
     public double getCompoundInterest(int times, int years){
         // Return the final amount considering that bank gives compound interest on current amount given times per year
         double compoundInterest = this.getBalance() * Math.pow((1 + rate / (100 * times)), times * years) ;
-        return compoundInterest;
+        return this.getBalance() + compoundInterest;
     }
     @Override
     public String toString() { //*****

@@ -34,15 +34,15 @@ public class BankAccount {
         //Each digit of an account number can lie between 0 and 9 (both inclusive)
         //Generate account number having given number of 'digits' such that the sum of digits is equal to 'sum'
         //If it is not possible, throw "Account Number can not be generated" exception
+        if (digits * 9 < sum) {
+            throw new Exception("Account Number cannot be generated");
+        }
         int[] accountNumber = new int[digits];
         int currSum = 0;
-        for(int i=0; i<digits; i++){
-            int randomDig = (int) (Math.random() * 10);
-            accountNumber[i] = randomDig;
-            currSum += randomDig;
-        }
-        if(currSum != sum){
-            throw new Exception("Account Number can not be generated");
+        for (int i = 0; i < digits; i++) {
+            int digit = Math.min(9, sum);
+            accountNumber[i] = digit;
+            sum -= digit;
         }
         StringBuilder accountNumberStr = new StringBuilder();
         for (int digit : accountNumber) {
@@ -53,10 +53,14 @@ public class BankAccount {
 //            throw new Exception("Account Number cannot be generated");
 //        }
 //        int[] accountNumber = new int[digits];
-//        for (int i = 0; i < digits; i++) {
-//            int digit = Math.min(9, sum);
-//            accountNumber[i] = digit;
-//            sum -= digit;
+//        int currSum = 0;
+//        for(int i=0; i<digits; i++){
+//            int randomDig = (int) (Math.random() * 10);
+//            accountNumber[i] = randomDig;
+//            currSum += randomDig;
+//        }
+//        if(currSum != sum){
+//            throw new Exception("Account Number can not be generated");
 //        }
 //        StringBuilder accountNumberStr = new StringBuilder();
 //        for (int digit : accountNumber) {
