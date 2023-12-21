@@ -6,7 +6,8 @@ public class Main {
         try{
             BankAccount bankAccount = new BankAccount("Aves", 4000, 2500);
             String AccountNo = bankAccount.generateAccountNumber(8, 69);
-            CurrentAccount currentAccount = new CurrentAccount("Elon Musk(aka Mars)", 6000, "LICENCE123");
+            CurrentAccount currentAccount = new CurrentAccount("Elon Musk(aka Mars)", 6000, "AABBCCDDE");
+            currentAccount.validateLicenseId();
             SavingsAccount savingsAccount = new SavingsAccount("Bill gates", 2000, 1000, 10);
 
             savingsAccount.deposit(1000);
@@ -20,8 +21,7 @@ public class Main {
             System.out.println("Bank Account Info");
             System.out.println("Generated account no :" + AccountNo);
             System.out.println((bankAccount));
-            System.out.println()
-            ;
+            System.out.println();
             System.out.println("Current Account Info");
             System.out.println(currentAccount);
             System.out.println();

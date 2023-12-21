@@ -12,8 +12,11 @@ public class StudentAccount extends BankAccount{
     public String getInstitutionName() {
         return institutionName;
     }
-    @Override
-    public String toString(){//****
-        return super.toString() + "\n InstituteName: " + institutionName;
+    public void setInstitutionName(String institutionName) {
+        this.institutionName = institutionName;
     }
+//    @Override
+//    public String toString(){//****
+//        return super.toString() + "\n InstituteName: " + institutionName;
+//    }
 }
